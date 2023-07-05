@@ -36,21 +36,25 @@
         $data = mysqli_num_rows($result);
         if ($data != 0) {
             $data = mysqli_num_rows($result);
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>
-            <td>" . $row['id'] . "</td> 
-         <td>" . $row['name'] . "</td> 
-         <td>" . $row['phone'] . "</td> 
-         <td>" . $row['email'] . "</td> 
-         <td>" . $row['password'] . "</td> 
-         <td> <a href='update_data.php?id=$row[id]'><input type='submit' value='Edit' class='update'></a>
-         <a href='delete_data.php?id=$row[id]'>        
-         <button onclick='return confirm('Are you sure delete')>delete</button>        
-          </a>
-         </td>
-w
-         </tr> ";
-            }
+            while ($row = mysqli_fetch_assoc($result)) { ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['phone']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['password']; ?></td>
+                    <td> <a href='update_data.php?id=<?php echo $row['id']; ?>'><input type='submit' value='Edit' class='update'></a>
+                        <a href='delete_data.php?id=<?php echo $row['id']; ?>'>
+                            <button onclick='return confirm("Are you sure delete?")'>DELETE</button>
+                        </a>
+                    </td>
+                </tr>
+            <?php    }
+        } else {  ?>
+            <tr>
+                <td><b>No Result...........</b></td>
+            </tr>
+        <?php
         }
         ?>
     </table>
