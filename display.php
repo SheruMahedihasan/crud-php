@@ -57,6 +57,7 @@
         <?php
         }
         ?>
+
     </table>
     <div class="py-3 m-auto text-center">
         <button class="btn btn-success"><a href="insert_data.php" class="text-light ">Insert</a></button>
